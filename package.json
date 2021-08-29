@@ -1,0 +1,40 @@
+{
+  "name": "projetobd",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido para um aplicativo de uma biblioteca, ",
+  "main": "a./bin/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mphillipecarmo/projetoBD.git"
+  },
+  "keywords": [
+    "biblioteca",
+    "bd",
+    "trabalho"
+  ],
+  "author": "Marcos Phillipe Mendes do Carmo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mphillipecarmo/projetoBD/issues"
+  },
+  "homepage": "https://github.com/mphillipecarmo/projetoBD#readme",
+  "dependencies": {
+    "@types/node": "^16.7.2",
+    "connect-flash": "^0.1.1",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.1.2",
+    "http": "0.0.1-security",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql-client": "^0.3.0",
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.12"
+  }
+}

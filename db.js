@@ -5,8 +5,8 @@ const pool = mysql.createPool({
   host: '127.0.0.1',
   database: 'biblioteca',
   user: 'root',
-  password: '123456',
-  port: 33060,
+  password: 'test',
+  port: 3306,
 
   // configuração das conexões
   multipleStatements: true,
