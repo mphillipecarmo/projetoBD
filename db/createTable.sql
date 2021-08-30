@@ -74,8 +74,10 @@ CREATE TABLE usuario (
     cpf       VARCHAR(11) NOT NULL,
     telefone  VARCHAR(11),
     emal      VARCHAR(100),
-    status    VARCHAR(10)
+    status    VARCHAR(10),
+    diasbloqueado  INTEGER
 );
+ALTER TABLE usuario ADD CONSTRAINT usuario_ck_1 CHECK ( diasbloqueado >= 0 );
 
 ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( cpf );
 

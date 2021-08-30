@@ -13,4 +13,23 @@ Trabalho realizado para a disciplina de Banco de dados e laboratório de banco d
     - [ ] 
 
     - [ ]fazer um drop e recriar as tabelas
-     
+
+# Lembrar:
+    - [ ] Colocar menssagems de erro e de sucesso na tela de cadastrar usuario e na tela de cadastar livro
+
+# Fazer:
+
+    - Home 
+    - Emprestar 
+    - Devolver
+    - Cadastrar Usuario
+        validar cpf no front
+
+    - Cadastrar Livro
+    - Consultar status
+    - Consultar Atrasos
+
+    - Lista de ultimo dia
+    - Usuario: renovar livro
+
+

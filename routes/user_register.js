@@ -13,19 +13,21 @@ router.get('/',async (req, res, next)=>{
 })
 
 router.post('/',async (req, res, next)=>{
-    const { nomeUsuario, CPF, Telefone,emailUsuario,endereco,Switch_aluno,matricula_aluno } = req.body;
+    const { nomeUsuario, CPF, Telefone,emailUsuario,endereco,matricula_aluno} = req.body;
 
-    
+    console.log(matricula_aluno)
     try {
         console.log(nomeUsuario + ' ' + CPF + ' ' + Telefone + ' ' + emailUsuario + ' ' + endereco)
         const [user] = await db.execute(`INSERT INTO usuario VALUES ('${nomeUsuario}','${CPF}','${Telefone}','${emailUsuario}','ok')`)
         console.log(user)
-        if(Switch_aluno.checked){
+        if(matricula_aluno !== ''){
             const [aluno] = await db.execute(`INSERT INTO aluno VALUES ('${CPF}','${matricula_aluno}')`)
+            console.log(aluno)
         }else{
-            const [aluno] = await db.execute(`INSERT INTO aluno VALUES (0,'${matricula_aluno}')`)
+            const [aluno] = await db.execute(`INSERT INTO funcionario VALUES ('${CPF}', 0)`)
+            console.log(aluno)
         }
-
+        
         if(!user || user.affectedRows < 1 ){
             throw new Error('Usuário não foi inserido corretamente')
         }

@@ -1,52 +1,52 @@
 
 use biblioteca;
 insert into usuario values
-('Graciana Liberato Neres','63362774024' , '3199999999','Graciana@gmail.com', 'Ok');
+('Graciana Liberato Neres','63362774024' , '3199999999','Graciana@gmail.com', 'Ok',0);
 insert into aluno values
 ('63362774024' , '20171012');
 
 insert into usuario values
-('Kieza Caneira Botelho','54159739075' , '3199999999','Kieza@gmail.com', 'Ok');
+('Kieza Caneira Botelho','54159739075' , '3199999999','Kieza@gmail.com', 'Ok',0);
 insert into aluno values
 ('54159739075' , '20171013');
 
 insert into usuario values
-('Kyan Valcácer Parafita','74293506071' , '3199999999','Kyan@gmail.com', 'Ok');
+('Kyan Valcácer Parafita','74293506071' , '3199999999','Kyan@gmail.com', 'Ok',0);
 insert into aluno values
 ('74293506071' , '20180901');
 
 insert into usuario values
-('Marcelino Madeira Mortágua','07724120064' , '3199999999','Marcelino@gmail.com', 'Ok');
+('Marcelino Madeira Mortágua','07724120064' , '3199999999','Marcelino@gmail.com', 'Ok',0);
 insert into aluno values
 ('07724120064' , '20180915');
 
 insert into usuario values
-('Girisha Lopes Amorim','01296396053' , '3199999999','Girisha@gmail.com', 'Ok');
+('Girisha Lopes Amorim','01296396053' , '3199999999','Girisha@gmail.com', 'Ok',0);
 insert into aluno values
 ('01296396053' , '20192425');
 
 insert into usuario values
-('Tomás Sequeira Castanheda','50356080005' , '3199999999','Castanheda@gmail.com', 'Ok');
+('Tomás Sequeira Castanheda','50356080005' , '3199999999','Castanheda@gmail.com', 'Ok',0);
 insert into funcionario values
 ('50356080005' , 0);
 
 insert into usuario values
-('Suéli Lacerda Franca','18467297000' , '3199999999','Lacerda@gmail.com', 'Ok');
+('Suéli Lacerda Franca','18467297000' , '3199999999','Lacerda@gmail.com', 'Ok',0);
 insert into funcionario values
 ('18467297000' , 0);
 
 insert into usuario values
-('Dominique Meira Távora','12304365027' , '3199999999','Dominique@gmail.com', 'Ok');
+('Dominique Meira Távora','12304365027' , '3199999999','Dominique@gmail.com', 'Ok',0);
 insert into funcionario values
 ('12304365027' , 0);
 
 insert into usuario values
-('Marcus Gouveia Barrocas','58731826040' , '3199999999','Gouveia@gmail.com', 'Ok');
+('Marcus Gouveia Barrocas','58731826040' , '3199999999','Gouveia@gmail.com', 'Ok',0);
 insert into funcionario values
 ('58731826040' , 0);
 
 insert into usuario values
-('Emily Cerqueira Taveiros','49453433063' , '3199999999','Emily@gmail.com', 'Ok');
+('Emily Cerqueira Taveiros','49453433063' , '3199999999','Emily@gmail.com', 'Ok',0);
 insert into funcionario values
 ('49453433063' , 0);
 

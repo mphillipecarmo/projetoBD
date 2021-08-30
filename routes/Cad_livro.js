@@ -13,20 +13,20 @@ router.get('/',async (req, res, next)=>{
 })
 
 router.post('/',async (req, res, next)=>{
-    const { nomeUsuario, CPF, Telefone,emailUsuario,endereco } = req.body;
+    const { nomelivro, nomeAutor, nomeEditora,volume,edicao,categoria,descricao,ano,quantidade} = req.body;
 
-    
+    console.log(req.body)
     try {
-        console.log(nomeUsuario + ' ' + CPF + ' ' + Telefone + ' ' + emailUsuario + ' ' + endereco)
-        const [user] = await db.execute(`INSERT INTO usuario VALUES ('${nomeUsuario}','${CPF}','${Telefone}','${emailUsuario}','ok')`)
-        console.log(user)
-
-        if(!user || user.affectedRows < 1 ){
-            throw new Error('Usuário não foi inserido corretamente')
+        console.log(nomelivro + ' ' + nomeAutor + ' ' + nomeEditora + ' ' + volume + ' ' + edicao+ ' ' + categoria + ' ' + descricao +' ' + ano +' ' + quantidade)
+        const [livro] = await db.execute(`INSERT INTO livro VALUES (0,'${nomelivro}','${nomeAutor}','${nomeEditora}','${volume}','${edicao}','${categoria}','${descricao}','${ano}','${quantidade}')`)
+        console.log(livro)
+        
+        if(!livro || livro.affectedRows < 1 ){
+            throw new Error('Livro não foi inserido corretamente')
         }
         
         res.format({
-            html: ()=>{req.flash('success',"Usuario cadastrado com sucesso")
+            html: ()=>{req.flash('success',"Livro inserido com sucesso")
             res.redirect('/')
         },
         json:()=> res.status(200).send({})
@@ -38,6 +38,5 @@ router.post('/',async (req, res, next)=>{
         console.log(error)
     }
 })
-
 
 export default router

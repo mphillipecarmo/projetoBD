@@ -1,4 +1,4 @@
-let cadLivro =  document.querySelector("#cadLivro")
+/*let cadLivro =  document.querySelector("#cadLivro")
 cadLivro.addEventListener('click', function(){
     let nome = document.querySelector("#nomelivro").value;
     let autor = document.querySelector("#nomeAutor").value;
@@ -9,3 +9,4 @@ cadLivro.addEventListener('click', function(){
     let descricao = document.querySelector("#descricao").value;
     let ano = document.querySelector("#ano").value;
     })
+    */

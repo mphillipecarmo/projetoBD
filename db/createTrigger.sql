@@ -1,14 +1,17 @@
 use biblioteca;
-drop TRIGGER IF EXISTS reserva_duplicada;
+drop TRIGGER IF EXISTS libera_reserva;
 delimiter //
-CREATE TRIGGER reserva_duplicada BEFORE insert ON reservas
+CREATE TRIGGER libera_reserva AFTER DELETE ON emprestimo
        FOR EACH ROW    
        BEGIN
            declare s int;
-           set @qts_reservas = (select COUNT(*) from reservas where usuario = NEW.usuario and id_livro = NEW.id_livro);
-           IF @qts_reservas > 0 THEN
-                    signal sqlstate '99999' set message_text = 'Erro: Usuario já reservou este livro';
+           -- OLD.id_livro , OLD.usuario , OLD.dataemprestimo, OLD.renova
+           set @reserva_proritaria = (select usuario from reservas where OLD.id_livro order by data limit 1);
+
+           IF @reserva_proritaria is NOT NULL THEN
+                UPDATE reservas set status = 'Retirar' where usuario = @reserva_proritaria and id_livro = OLD.id_livro;
+                UPDATE reservas set data = CURDATE() where usuario = @reserva_proritaria and id_livro = OLD.id_livro;
            END IF;
-       
+
        END; //
 delimiter ;
