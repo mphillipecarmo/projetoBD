@@ -32,15 +32,15 @@ CREATE TABLE emprestimo (
     id_livro        INTEGER NOT NULL,
     usuario         VARCHAR(11) NOT NULL,
     dataemprestimo  DATE NOT NULL,
-    renova          INTEGER
+    renova          INTEGER CHECK (renova >= 0 and renova <= 3) 
 );
 
 CREATE TABLE funcionario (
     cpf       VARCHAR(11) NOT NULL,
-    registro  INTEGER NOT NULL AUTO_INCREMENT
+    registro  INT NOT NULL AUTO_INCREMENT PRIMARY KEY 
 );
 
-ALTER TABLE funcionario ADD CONSTRAINT funcionario_pk PRIMARY KEY ( cpf );
+-- ALTER TABLE funcionario ADD CONSTRAINT funcionario_pk PRIMARY KEY ( cpf );
 
 ALTER TABLE funcionario ADD CONSTRAINT funcionario__un UNIQUE ( registro );
 
@@ -50,6 +50,7 @@ CREATE TABLE livro (
     autor       VARCHAR(50) NOT NULL,
     editora     VARCHAR(50),
     volume      INTEGER,
+    edicao      INTEGER,
     categoria   VARCHAR(50),
     descricao   VARCHAR(200),
     ano         INTEGER,
