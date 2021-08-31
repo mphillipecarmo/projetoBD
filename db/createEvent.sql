@@ -15,9 +15,9 @@ CREATE EVENT atualiza_status_aluno
         -- atualiza se o usuario esta bloqueado por atraso
         UPDATE usuario usr inner join (SELECT usuario from emprestimo where timestampdiff(DAY, dataemprestimo , CURDATE()) > 7) atr on usr.CPF = atr.usuario set status = 'block';        
         -- Cancela a reserva apos 2 dias
-        UPDATE reservas res inner join (SELECT usuario from reserva where status = 'Retirar' and timestampdiff(DAY, data , CURDATE()) > 2) atr on res.usuario = atr.usuario set status = 'cancel';
+        UPDATE reservas res inner join (SELECT usuario from reservas where status = 'Retirar' and timestampdiff(DAY, data , CURDATE()) > 2) atr on res.usuario = atr.usuario set status = 'cancel';
 
-
+        DELETE from reservas where status = 'cancel';
 
 
 
