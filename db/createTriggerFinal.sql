@@ -104,7 +104,7 @@ CREATE TRIGGER reserva_duplicada BEFORE insert ON reservas
            declare s int;
            set @qts_reservas = (select COUNT(*) from reservas where usuario = NEW.usuario and id_livro = NEW.id_livro);
            IF @qts_reservas > 0 THEN
-                    signal sqlstate '99999' set message_text = 'Erro: Usuario já reservou este livro';
+                    signal sqlstate '99999' set message_text = 'Erro: Usuario já possui uma reserva deste livro';
            END IF;
        
        END; //
@@ -191,3 +191,20 @@ delimiter ;
 
 -- ------------------------------------------------------ --
 
+use biblioteca;
+drop TRIGGER IF EXISTS libera_usuario;
+delimiter //
+CREATE TRIGGER libera_usuario BEFORE UPDATE ON usuario
+       FOR EACH ROW    
+       BEGIN
+           declare s int;
+           -- OLD.id_livro , OLD.usuario , OLD.dataemprestimo, OLD.renova
+           set @qts_livro = (select COUNT(*) from emprestimo where usuario = NEW.CPF);
+
+           IF NEW.diasbloqueado = 0 THEN       
+             signal sqlstate '99999' set message_text = 'usuario desbloqueado';      
+                -- UPDATE usuario set status = 'ok' where CPF = NEW.CPF;
+           END IF;
+
+       END; //
+delimiter ;
