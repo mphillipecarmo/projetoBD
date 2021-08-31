@@ -190,3 +190,4 @@ CREATE TRIGGER libera_reserva AFTER DELETE ON emprestimo
 delimiter ;
 
 -- ------------------------------------------------------ --
+
