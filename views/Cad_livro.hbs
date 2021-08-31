@@ -1,77 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Biblioteca</title>
 </head>
-<body class = 'justify-content-center'>
-    
-      <div class="d-flex justify-content-center ">
-          <div class="col-8">
-      <form action="/Cad_livro" method="POST">
-        <div class="d-flex flex-row ">
-        <div class="mb-3 col-4 p-2">
-          <label for="nomeLivro" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nomelivro" name="nomelivro">
-          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-        </div>
-        <div class="mb-3 col-4 p-2">
-            <label for="nomeAutor" class="form-label">Autor</label>
-            <input type="text" class="form-control" id="nomeAutor" name="nomeAutor">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-        </div>
-        <div class="d-flex flex-row ">
-          <div class="mb-3 col-4 p-2">
-            <label for="nomeEditora" class="form-label">Editora</label>
-            <input type="text" class="form-control" id="nomeEditora" name="nomeEditora">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-          <div class="mb-3 col-4 p-2">
-            <label for="volume" class="form-label">Volume</label>
-            <input type="text" class="form-control" id="volume" name="volume">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-        </div>
-          <div class="d-flex flex-row ">
-          <div class="mb-3 col-4 p-2">
-            <label for="edicao" class="form-label">Edição</label>
-            <input type="text" class="form-control" id="edicao" name="edicao">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-          <div class="mb-3 col-4 p-2">
-            <label for="categoria" class="form-label">Categoria</label>
-            <input type="text" class="form-control" id="categoria" name="categoria">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-        </div>
-          <div class="d-flex flex-row ">
-          <div class="mb-3 col-4 p-2">
-            <label for="descricao" class="form-label">Descrição</label>
-            <input type="text" class="form-control" id="descricao" name="descricao">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-          <div class="mb-3 col-4 p-2">
-            <label for="ano" class="form-label">Ano</label>
-            <input type="text" class="form-control" id="ano" name="ano">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-        </div>
-        <div class="d-flex flex-row ">
-          <div class="mb-3 col-4 p-2">
-            <label for="quantidade" class="form-label">Quantidade</label>
-            <input type="text" class="form-control" id="quantidade" name="quantidade">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-          </div>
-        </div>
-          
-        <button type="submit" class="btn btn-primary" id="btn_cadLivro">Submit</button>
-      </form>
-    </div>
+
+<body>
+
+    <div class="mt-5 d-flex justify-content-around ">
+
+        <form class="card col-8 card-shadow p-2 " action="/Cad_livro" method="POST">
+            <div class="row d-flex justify-content-center">
+                <div class="mb-3 col-4 p-2">
+                    <label for="nomeLivro" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nomelivro" name="nomelivro">
+                </div>
+                <div class="mb-3 col-4 p-2">
+                    <label for="nomeAutor" class="form-label">Autor</label>
+                    <input type="text" class="form-control" id="nomeAutor" name="nomeAutor">
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="mb-3 col-4 p-2">
+                    <label for="nomeEditora" class="form-label">Editora</label>
+                    <input type="text" class="form-control" id="nomeEditora" name="nomeEditora">
+                </div>
+                <div class="mb-3 col-4 p-2">
+                    <label for="volume" class="form-label">Volume</label>
+                    <input type="text" class="form-control" id="volume" name="volume">
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="mb-3 col-4 p-2">
+                    <label for="edicao" class="form-label">Edição</label>
+                    <input type="text" class="form-control" id="edicao" name="edicao">
+                </div>
+                <div class="mb-3 col-4 p-2">
+                    <label for="categoria" class="form-label">Categoria</label>
+                    <input type="text" class="form-control" id="categoria" name="categoria">
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="mb-3 col-4 p-2">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <input type="text" class="form-control" id="descricao" name="descricao">
+                </div>
+                <div class="mb-3 col-4 p-2">
+                    <label for="ano" class="form-label">Ano</label>
+                    <input type="text" class="form-control" id="ano" name="ano">
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="mb-3 col-4 p-2">
+                    <label for="quantidade" class="form-label">Quantidade</label>
+                    <input type="text" class="form-control" id="quantidade" name="quantidade">
+                </div>
+            </div>
+
+            <div class=" d-flex justify-content-center my-5 ">
+                <button type="submit" class="btn btn-color" id="btn_cadLivro">Submit</button>
+            </div>
+        </form>
     </div>
 
 
@@ -86,6 +81,9 @@
 
 
     <script src="/public/js/CadastrarLivro.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
