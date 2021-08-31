@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
     <title>Biblioteca</title>
     <link rel="stylesheet" href="./css/style.css">
 
-  </head>
-  <body>
+</head>
+
+<body class="bg_image">
     {{> header}}
 
-
     <section id="notifications" class="toast-container position-absolute start-50 translate-middle-x">
-      {{#if success}}
+        {{#if success}}
         {{> notification isSucess=true title="Sucesso!" message=success}}
-      {{/if}}
-      {{#if error}}
+        {{/if}}
+        {{#if error}}
         {{> notification isSucess=false title="Erro!" message=error}}
-      {{/if}}
+        {{/if}}
     </section>
 
     <main>
-      {{{body}}}
+        {{{body}}}
     </main>
-   
-  </body>
+
+    <footer class="foot-position">
+        {{> footer }}
+    </footer>
+</body>
+
 </html>
