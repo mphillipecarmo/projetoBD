@@ -6,7 +6,11 @@ const router = express.Router()
 
 /* GET página inicial */
 router.get('/', (req, res)=>{
-    res.render('index')
+    res.format({html: ()=> {
+       res.render('index', {success:'success'})
+        
+    }})
+       
 
 })
 

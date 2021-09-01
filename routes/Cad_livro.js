@@ -24,13 +24,7 @@ router.post('/',async (req, res, next)=>{
         if(!livro || livro.affectedRows < 1 ){
             throw new Error('Livro não foi inserido corretamente')
         }
-        
-        res.format({
-            html: ()=>{req.flash('success',"Livro inserido com sucesso")
-            res.redirect('/')
-        },
-        json:()=> res.status(200).send({})
-        })
+        res.send({ok:true})
         
         //res.redirect('/teste')
     } catch (error) {

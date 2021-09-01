@@ -5,18 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
+    <link rel="stylesheet" href="./css/estilos.css">
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
 
 <body class="bg_image">
     {{> header}}
-
     <section id="notifications" class="toast-container position-absolute start-50 translate-middle-x">
-        {{#if success}}
+        
+        {{#if success}}       
         {{> notification isSucess=true title="Sucesso!" message=success}}
         {{/if}}
         {{#if error}}
+        <div>error</div>
         {{> notification isSucess=false title="Erro!" message=error}}
         {{/if}}
     </section>
@@ -24,10 +26,7 @@
     <main>
         {{{body}}}
     </main>
-
-    <footer class="foot-position">
-        {{> footer }}
-    </footer>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

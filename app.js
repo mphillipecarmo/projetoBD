@@ -60,6 +60,54 @@ app.use('/EmprestarLivro', EmprestarLivro)
 app.use('/Devolver_livro', Devolver_livro)
 app.use('/Cad_livro', Cad_livro)
 
+if (app.get('env') === 'development') {
+  app.use((err, req, res, next) => {
+    const message = err.friendlyMessage ? [err.friendlyMessage, err.message].join('. ') : err.message
+    res.status(err.status || 500)
+    res.render('error', {
+      message: message,
+      error: err
+    })
+  })
+}
 
+// handler de erros de ambiente de produção
+// não mostra a stack de erros pro usuário
+app.use((err, req, res, next) => {
+  res.status(err.status || 500)
+  res.render('error', {
+    message: err.friendlyMessage ?? err.message,
+    error: {}
+  })
+})
+// uma rota "catch-all" para erros de caminho inexistente
+app.use((req, res, next) => {
+  const err = new Error('Not Found')
+  err.status = 404
+  next(err)
+})
+
+// handler de erros em ambientes de dev
+// imprime a stacktrace
+if (app.get('env') === 'development') {
+  app.use((err, req, res, next) => {
+    const message = err.friendlyMessage ? [err.friendlyMessage, err.message].join('. ') : err.message
+    res.status(err.status || 500)
+    res.render('error', {
+      message: message,
+      error: err
+    })
+  })
+}
+
+// handler de erros de ambiente de produção
+// não mostra a stack de erros pro usuário
+app.use((err, req, res, next) => {
+  res.status(err.status || 500)
+  res.render('error', {
+    message: err.friendlyMessage ?? err.message,
+    error: {}
+  })
+})
 
 export default app

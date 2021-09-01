@@ -7,7 +7,8 @@ const router = express.Router()
 
 /* GET página inicial */
 router.get('/',async (req, res, next)=>{
-    res.render('list_status')
+    res.render('list_status',{success: req.flash('succes'),
+                              error: req.flash('error')})
 
 
 })

@@ -33,5 +33,19 @@ Trabalho realizado para a disciplina de Banco de dados e laboratório de banco d
     - Usuario: renovar livro
 
 
-    - [ ] trigger de livro reservado emprestado 
+    - [ x] trigger de livro reservado emprestado 
+    - [ ] tela para ver livros da biblioteca
 
+
+# ordem:
+ 
+    - listar pendencias( lista de pendencias)
+    - arrumar as menssagens
+    - listar todas coisas  das telas do aluno
+
+
+    - Botao tela aluno
+
+
+# arrumar
+trigger ao devolver um livro bloqueado lancando um erro

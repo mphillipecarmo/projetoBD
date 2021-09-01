@@ -18,7 +18,7 @@ router.post('/',async (req, res, next)=>{
     console.log(matricula_aluno)
     try {
         console.log(nomeUsuario + ' ' + CPF + ' ' + Telefone + ' ' + emailUsuario + ' ' + endereco)
-        const [user] = await db.execute(`INSERT INTO usuario VALUES ('${nomeUsuario}','${CPF}','${Telefone}','${emailUsuario}','ok')`)
+        const [user] = await db.execute(`INSERT INTO usuario VALUES (0,'${nomeUsuario}','${CPF}','${Telefone}','${emailUsuario}','ok')`)
         console.log(user)
         if(matricula_aluno !== ''){
             const [aluno] = await db.execute(`INSERT INTO aluno VALUES ('${CPF}','${matricula_aluno}')`)
@@ -42,7 +42,7 @@ router.post('/',async (req, res, next)=>{
         //res.redirect('/teste')
     } catch (error) {
 
-        console.log(error)
+        console.log(error.sqlMessage)
     }
 })
 
