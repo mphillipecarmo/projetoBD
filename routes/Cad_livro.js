@@ -25,7 +25,7 @@ router.post('/',async (req, res, next)=>{
             throw new Error('Livro não foi inserido corretamente')
         }
         res.format({html: ()=> {
-            res.render('Cad_livro', {success:'Livro cadastrado com sucesso'})
+            res.render('Cad_livro', {success:'Livro cadastrado com sucesso',funcionario:true})
              
          }})
         
@@ -34,7 +34,7 @@ router.post('/',async (req, res, next)=>{
 
         console.log(error)
         res.format({html: ()=> {
-            res.render('Cad_livro', {error:error.message})
+            res.render('Cad_livro', {error:error.message,funcionario:true})
              
          }})
     }

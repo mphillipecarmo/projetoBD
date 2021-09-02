@@ -9,7 +9,7 @@ router.get('/',async (req, res, next)=>{
 
     try {
        
-        const [lista_UsuariosPorLivros] = await db.execute(`select lvr.nome as livro, lvr.autor, emp.nome, emp.emal, emp.usuario,emp.dataemprestimo from emprestimo_nome emp inner join livro lvr on lvr.id = emp.id_livro order by emp.dataemprestimo`)
+        const [lista_UsuariosPorLivros] = await db.execute(`select lvr.nome as livro, lvr.autor, emp.nome, emp.emal, emp.usuario,DATE_FORMAT(emp.dataemprestimo,'%d-%m-%Y') dataemprestimo from emprestimo_nome emp inner join livro lvr on lvr.id = emp.id_livro order by emp.dataemprestimo`)
         //let temp = Object.entries(pendente)
         console.log(lista_UsuariosPorLivros)
         res.format ({

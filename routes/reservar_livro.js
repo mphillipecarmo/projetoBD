@@ -26,7 +26,7 @@ router.post('/',async (req, res, next)=>{
     console.log(rev_id_livro + ' ' + rev_CPF)
     try {
         const [livro] = await db.execute(`SELECT * from livro`)
-        const [reservas] = await db.execute(`INSERT INTO reservas VALUES ('${rev_CPF}','${rev_id_livro}',CURDATE(),3)`)
+        const [reservas] = await db.execute(`INSERT INTO reservas VALUES ('${rev_CPF}','${rev_id_livro}',CURDATE(),'Aguardando')`)
         console.log(reservas)
         if(!reservas || reservas.affectedRows < 1 ){
             console.log(reservas.sqlMessage)

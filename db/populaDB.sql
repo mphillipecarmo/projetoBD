@@ -112,13 +112,13 @@ insert into emprestimo values
 -- --------------------------------------------------------------------------------- --
 
 insert into reservas values
-('74293506071' , 3, '2021-08-28','wait');
+('74293506071' , 3, '2021-08-28','Aguardando');
 insert into reservas values
-('74293506071' , 5, '2021-08-28','wait');
+('74293506071' , 5, '2021-08-28','Aguardando');
 
 insert into reservas values
-('07724120064' , 6, '2021-08-28','wait');
+('07724120064' , 6, '2021-08-28','Aguardando');
 insert into reservas values
-('18467297000' , 7, '2021-08-28','wait');
+('18467297000' , 7, '2021-08-28','Aguardando');
 insert into reservas values
-('01296396053' , 8, '2021-08-28','wait');
+('01296396053' , 8, '2021-08-28','Aguardando');

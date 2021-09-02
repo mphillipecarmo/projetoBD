@@ -33,7 +33,7 @@ router.post('/',async (req, res, next)=>{
         }
         
         res.format({html: ()=> {
-            res.render('user_register', {success:'Usuario cadastrado com sucesso'})
+            res.render('user_register', {success:'Usuario cadastrado com sucesso',funcionario:true})
              
          }})
         
@@ -42,7 +42,7 @@ router.post('/',async (req, res, next)=>{
 
         console.log(error.sqlMessage)
         res.format({html: ()=> {
-            res.render('user_register', {error:error.message})
+            res.render('user_register', {error:error.message,funcionario:true})
              
          }})
     }

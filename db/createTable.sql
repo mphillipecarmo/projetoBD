@@ -110,7 +110,8 @@ ALTER TABLE reservas
 
 DROP VIEW IF EXISTS emprestimo_nome;
 CREATE VIEW emprestimo_nome AS SELECT usr.nome, usr.emal ,emp.usuario, emp.dataemprestimo, emp.id_livro from emprestimo emp inner join usuario usr on usr.CPF = emp.usuario;
-
+DROP VIEW IF EXISTS reserva_nome;
+CREATE VIEW reserva_nome AS SELECT usr.nome, usr.emal ,res.usuario, res.data, res.status ,res.id_livro from reservas res inner join usuario usr on usr.CPF = res.usuario;
 -- Relatório do Resumo do Oracle SQL Developer Data Modeler:
 -- 
 -- CREATE TABLE                             6

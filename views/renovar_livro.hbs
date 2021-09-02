@@ -20,7 +20,7 @@
 
                 <div class="mb-3 col-4 p-2">
                     <label for="CPF" class="form-label">CPF</label>
-                    <input type="text" class="form-control" id="rvr_CPF" name="rvr_CPF" placeholder={{rvr_CPF}}>
+                    <input type="text" class="form-control" id="rvr_CPF" name="rvr_CPF" value={{rvr_CPF}}>
                 </div>
             </div>
             {{#if rvr_lista_usuario}}
@@ -61,18 +61,19 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-
-                        <th>Nome</th>
-                        <th>Autor</th>
-                        <th>Volume</th>
-                        <th>Ano</th>
-                        <th>Data emprestimo</th>
-                        <th>Renovações</th>
+                        <th>ID:</th>
+                        <th>Nome:</th>
+                        <th>Autor:</th>
+                        <th>Volume:</th>
+                        <th>Ano:</th>
+                        <th>Data emprestimo:</th>
+                        <th>Renovações:</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each rvr_lista_usuario_livros}}
                     <tr>
+                        <td>{{id}}</td>
                         <td>{{nome}}</td>
                         <td>{{autor}}</td>
                         <td>{{volume}}</td>

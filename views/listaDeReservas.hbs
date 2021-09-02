@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Biblioteca</title>
+</head>
+<body class = 'justify-content-center'>
+    
+    <div class="mt-5 d-flex justify-content-around">
+
+        <div class="card col-8 card-shadow p-2 ">
+            {{#if reserva}}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Usuario:</th>
+                        <th>CPF:</th>
+                        <th>Livro:</th>
+                        <th>Id:</th>
+                        <th>status</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each reserva}}
+                    <tr>
+                        <td>{{nome}}</td>
+                        <td>{{CPF}}</td>
+                        <td>{{livro}}</td>
+                        <td>{{id}}</td>
+                        <td>{{status}}</td>
+                        <td>{{data}}</td>
+
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

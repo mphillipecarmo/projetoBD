@@ -24,7 +24,7 @@ router.post('/',async (req, res, next)=>{
         }
         console.log('Livro devolvido com sucesso')
         res.format({html: ()=> {
-            res.render('Devolver_livro', {success:'Livro devolvido com sucesso'})
+            res.render('Devolver_livro', {success:'Livro devolvido com sucesso',funcionario:true})
              
          }})
         //res.redirect('/teste')
@@ -32,7 +32,7 @@ router.post('/',async (req, res, next)=>{
 
         console.log(error)
         res.format({html: ()=> {
-            res.render('Devolver_livro', {error:error.message})
+            res.render('Devolver_livro', {error:error.message,funcionario:true})
              
          }})
     }

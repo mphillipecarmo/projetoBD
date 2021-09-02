@@ -31,7 +31,7 @@ import lista_ultimoDia from './routes/lista_ultimoDia.js'
 
 import index_aluno from './routes/index_aluno.js'
 import listaDeLivros_aluno from './routes/listaDeLivros_aluno.js'
-
+import listaDeReservas from './routes/listaDeReservas.js'
 
 const app = express()
 const __dirname = new URL('.', import.meta.url).pathname
@@ -76,6 +76,7 @@ app.use('/lista_ultimoDia', lista_ultimoDia)
 
 app.use('/index_aluno', index_aluno)
 app.use('/listaDeLivros_aluno', listaDeLivros_aluno)
+app.use('/listaDeReservas', listaDeReservas)
 
 if (app.get('env') === 'development') {
   app.use((err, req, res, next) => {

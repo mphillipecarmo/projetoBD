@@ -65,4 +65,12 @@ CREATE VIEW emprestimo_nome AS SELECT usr.nome, usr.emal ,emp.usuario, emp.datae
 
 select lvr.nome, lvr.autor, emp.nome, emp.emal, emp.usuario,emp.dataemprestimo from emprestimo_nome emp inner join livro lvr on lvr.id = emp.id_livro order by emp.dataemprestimo;
 
-UPDATE emprestimo set dataemprestimo = dataemprestimo - 1 where usuario = '63362774024'
+UPDATE emprestimo set renova = renova - 1, dataemprestimo = CURDATE()  where usuario = '63362774024' and id_livro = 1;
+<td>{{usuario}}</td>
+                        <td>{{CPF}}</td>
+                        <td>{{livro}}</td>
+                        <td>{{id}}</td>
+                        <td>{{status}}</td>
+DROP VIEW IF EXISTS reserva_nome;
+CREATE VIEW reserva_nome AS SELECT usr.nome, usr.emal ,res.usuario, res.data, res.status ,res.id_livro from reservas res inner join usuario usr on usr.CPF = res.usuario;
+select res.nome,res.usuario as CPF, lvr.nome as livro, lvr.id, res.status res.data from reserva_nome res inner join livro lvr on lvr.id = res.id_livro order by res.data
