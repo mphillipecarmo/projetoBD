@@ -15,15 +15,12 @@
 
     <div class="mt-5 d-flex justify-content-around ">
 
-        <form class="card col-8 card-shadow p-2 " action="/EmprestarLivro" method="POST">
+        <form class="card col-8 card-shadow p-2 " action="/list_status" method="POST">
             <div class="row d-flex justify-content-center ">
-                <div class="mb-3 col-4 p-2">
-                    <label for="nomeUsuario" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="consulta_nomeUsuario" name="consulta_nomeUsuario">
-                </div>
+
                 <div class="mb-3 col-4 p-2">
                     <label for="CPF" class="form-label">CPF</label>
-                    <input type="text" class="form-control" id="consulta_CPF" name="consulta_CPF">
+                    <input type="text" class="form-control" id="sts_CPF" name="sts_CPF">
                 </div>
             </div>
 
@@ -32,6 +29,54 @@
 
             </div>
         </form>
+
+
+
+    </div>
+
+    <div class="mt-5 d-flex justify-content-around">
+        <div class="card col-8 card-shadow p-2 ">
+            {{#if lista_usuario}}
+                
+            <div>
+                {{#each lista_usuario}}
+                <ul>
+                    <li>Nome: {{nome}}</li>
+                    <li>Telefone: {{telefone}}</li>
+                    <li>Email: {{emal}}</li>
+                    <li>Status: {{status}}</li>
+                    <li>Dias Bloqueados: {{diasbloqueado}}</li>
+                </ul>
+                 {{/each}}
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th>Nome</th>
+                        <th>Autor</th>
+                        <th>Volume</th>
+                        <th>Ano</th>
+                        <th>Data emprestimo</th>
+                        <th>Renovações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each lista_usuario_livros}}
+                    <tr>
+                        <td>{{nome}}</td>
+                        <td>{{autor}}</td>
+                        <td>{{volume}}</td>
+                        <td>{{ano}}</td>
+                        <td>{{dataemprestimo}}</td>
+                        <td>{{renova}}</td>
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
     </div>
 
 
@@ -39,13 +84,6 @@
 
 
 
-
-
-
-
-
-
-    <script src="./js/ConsultarStatus.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>

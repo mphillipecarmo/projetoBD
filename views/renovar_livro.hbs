@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Biblioteca</title>
 </head>
-<body class = 'justify-content-center'>
-    
+
+<body class='justify-content-center'>
+
+    <div class="mt-5 d-flex justify-content-around ">
+
+        <form class="card col-8 card-shadow p-2 " action="/renovar_livro" method="POST">
+            <div class="row d-flex justify-content-center ">
+
+                <div class="mb-3 col-4 p-2">
+                    <label for="CPF" class="form-label">CPF</label>
+                    <input type="text" class="form-control" id="rvr_CPF" name="rvr_CPF" placeholder={{rvr_CPF}}>
+                </div>
+            </div>
+            {{#if rvr_lista_usuario}}
+            <div class="row d-flex justify-content-center ">
+
+                <div class="mb-3 col-4 p-2">
+                    <label for="CPF" class="form-label">ID do livro</label>
+                    <input type="text" class="form-control" id="rvr_ID" name="rvr_ID">
+                </div>
+            </div>
+            {{/if}}
+
+            <div class=" d-flex justify-content-center my-5 ">
+                <button type="submit" class="btn btn-color" id="btn_statusUser">Submit</button>
+
+            </div>
+        </form>
+
+
+
+    </div>
+
+    <div class="mt-5 d-flex justify-content-around">
+        <div class="card col-8 card-shadow p-2 ">
+            {{#if rvr_lista_usuario}}
+
+            <div>
+                {{#each rvr_lista_usuario}}
+                <ul>
+                    Nome: {{nome}}
+                    Telefone: {{telefone}}
+                    Email: {{emal}}
+                    Status: {{status}}
+                    Dias Bloqueados: {{diasbloqueado}}
+                </ul>
+                {{/each}}
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th>Nome</th>
+                        <th>Autor</th>
+                        <th>Volume</th>
+                        <th>Ano</th>
+                        <th>Data emprestimo</th>
+                        <th>Renovações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each rvr_lista_usuario_livros}}
+                    <tr>
+                        <td>{{nome}}</td>
+                        <td>{{autor}}</td>
+                        <td>{{volume}}</td>
+                        <td>{{ano}}</td>
+                        <td>{{dataemprestimo}}</td>
+                        <td>{{renova}}</td>
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+    </div>
 
 
 
@@ -19,6 +96,10 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

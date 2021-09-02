@@ -36,6 +36,37 @@
 
     </div>
 
+    <div class="mt-5 d-flex justify-content-around">
+
+        <div class="card col-8 card-shadow p-2 ">
+            {{#if livro}}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Editora</th>
+                        <th>Categoria</th>
+                        <th>Ano</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each livro}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{nome}}</td>
+                        <td>{{autor}}</td>
+                        <td>{{editora}}</td>
+                        <td>{{ano}}</td>
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+    </div>
+
 
 
 

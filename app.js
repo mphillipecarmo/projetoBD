@@ -23,6 +23,14 @@ import user_register from './routes/user_register.js'
 import Devolver_livro from './routes/Devolver_livro.js'
 import Cad_livro from './routes/Cad_livro.js'
 
+import renovar_livro from './routes/renovar_livro.js'
+import reservar_livro from './routes/reservar_livro.js'
+import consultar_datas from './routes/consultar_datas.js'
+import listaDeLivros from './routes/listaDeLivros.js'
+import lista_ultimoDia from './routes/lista_ultimoDia.js'
+
+import index_aluno from './routes/index_aluno.js'
+import listaDeLivros_aluno from './routes/listaDeLivros_aluno.js'
 
 
 const app = express()
@@ -59,6 +67,15 @@ app.use('/list_pendencia', list_pendencia)
 app.use('/EmprestarLivro', EmprestarLivro)
 app.use('/Devolver_livro', Devolver_livro)
 app.use('/Cad_livro', Cad_livro)
+
+app.use('/renovar_livro', renovar_livro)
+app.use('/reservar_livro', reservar_livro)
+app.use('/consultar_datas', consultar_datas)
+app.use('/listaDeLivros', listaDeLivros)
+app.use('/lista_ultimoDia', lista_ultimoDia)
+
+app.use('/index_aluno', index_aluno)
+app.use('/listaDeLivros_aluno', listaDeLivros_aluno)
 
 if (app.get('env') === 'development') {
   app.use((err, req, res, next) => {

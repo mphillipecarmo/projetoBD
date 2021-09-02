@@ -1,5 +1,4 @@
 import express from 'express'
-import { nextTick } from 'process';
 import db from '../db.js'
 
 const router = express.Router()
@@ -8,14 +7,13 @@ const router = express.Router()
 /* GET página inicial */
 router.get('/',async (req, res, next)=>{
     try {
-        console.log('pendencia')
         
-        const [pendente] = await db.execute(`SELECT * from usuario where status = 'block'`)
+        const [livro] = await db.execute(`SELECT * from livro`)
         //let temp = Object.entries(pendente)
-        console.log(pendente)
+        console.log(livro)
         res.format ({
-            html :()=> res.render('list_pendencia',{pendente:pendente,funcionario:true}),
-            json: () => res.json({pendente})
+            html :()=> res.render('listaDeLivros_aluno',{livro:livro,aluno:true}),
+            json: () => res.json({livro})
         })
         
     } catch (error) {

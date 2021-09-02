@@ -9,15 +9,15 @@ CREATE TRIGGER upd_check BEFORE insert ON emprestimo
            set @s = (select COUNT(*) from emprestimo where usuario = NEW.usuario);
            set @id_repetido = (select COUNT(*) from emprestimo where usuario = NEW.usuario and id_livro = NEW.id_livro);
            IF @id_repetido > 0 THEN
-                    signal sqlstate '99999' set message_text = 'Erro: O usuario já possui uma copia deste livro';
+                    signal sqlstate '99999' set message_text = 'O usuario já possui uma copia deste livro';
            END IF;
            IF @is_funcionario is NULL THEN
-                IF @s > 5 THEN
-                    signal sqlstate '99999' set message_text = 'Erro: Aluno atingiu o limite de 5 livros emprestado';
+                IF @s >= 5 THEN
+                    signal sqlstate '99999' set message_text = 'Aluno atingiu o limite de 5 livros emprestado';
                 END IF;
            else
-                IF @s > 10 THEN
-                    signal sqlstate '99999' set message_text = 'Erro: Funcionario atingiu o limite de 10 livros emprestado';
+                IF @s >= 10 THEN
+                    signal sqlstate '99999' set message_text = 'Funcionario atingiu o limite de 10 livros emprestado';
                 END IF;
             END IF;
        END; //

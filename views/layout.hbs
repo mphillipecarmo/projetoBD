@@ -11,14 +11,18 @@
 </head>
 
 <body class="bg_image">
+    {{#if funcionario}}   
     {{> header}}
+    {{/if}}
+    {{#if aluno}}   
+    {{> header_aluno}}
+    {{/if}}
     <section id="notifications" class="toast-container position-absolute start-50 translate-middle-x">
         
         {{#if success}}       
         {{> notification isSucess=true title="Sucesso!" message=success}}
         {{/if}}
         {{#if error}}
-        <div>error</div>
         {{> notification isSucess=false title="Erro!" message=error}}
         {{/if}}
     </section>
@@ -26,7 +30,10 @@
     <main>
         {{{body}}}
     </main>
+
   <script src="/js/main.js"></script>
+
+
 </body>
 
 </html>

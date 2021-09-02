@@ -54,3 +54,15 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- lista ultimo dia
+SELECT * from usuario usr inner join emprestimo emp on usr.cpf = emp.usuario;
+
+SELECT nome ,telefone, emal, status, diasbloqueado from usuario where CPF = '63362774024';
+SELECT lvr.nome, lvr.autor,lvr.volume,lvr.ano, emp.dataemprestimo, emp.renova from livro lvr left join emprestimo emp on lvr.id = emp.id_livro where emp.usuario = '63362774024';
+DROP VIEW IF EXISTS emprestimo_nome;
+CREATE VIEW emprestimo_nome AS SELECT usr.nome, usr.emal ,emp.usuario, emp.dataemprestimo, emp.id_livro from emprestimo emp inner join usuario usr on usr.CPF = emp.usuario;
+
+select lvr.nome, lvr.autor, emp.nome, emp.emal, emp.usuario,emp.dataemprestimo from emprestimo_nome emp inner join livro lvr on lvr.id = emp.id_livro order by emp.dataemprestimo;
+
+UPDATE emprestimo set dataemprestimo = dataemprestimo - 1 where usuario = '63362774024'

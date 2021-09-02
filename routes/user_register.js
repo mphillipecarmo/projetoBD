@@ -7,7 +7,7 @@ const router = express.Router()
 
 /* GET página inicial */
 router.get('/',async (req, res, next)=>{
-    res.render('user_register')
+    res.render('user_register',{funcionario:true})
 
 
 })
@@ -18,7 +18,7 @@ router.post('/',async (req, res, next)=>{
     console.log(matricula_aluno)
     try {
         console.log(nomeUsuario + ' ' + CPF + ' ' + Telefone + ' ' + emailUsuario + ' ' + endereco)
-        const [user] = await db.execute(`INSERT INTO usuario VALUES (0,'${nomeUsuario}','${CPF}','${Telefone}','${emailUsuario}','ok')`)
+        const [user] = await db.execute(`INSERT INTO usuario VALUES ('${nomeUsuario}','${CPF}','${Telefone}','${emailUsuario}','ok',0)`)
         console.log(user)
         if(matricula_aluno !== ''){
             const [aluno] = await db.execute(`INSERT INTO aluno VALUES ('${CPF}','${matricula_aluno}')`)
@@ -32,17 +32,19 @@ router.post('/',async (req, res, next)=>{
             throw new Error('Usuário não foi inserido corretamente')
         }
         
-        res.format({
-            html: ()=>{req.flash('success',"Usuario cadastrado com sucesso")
-            res.redirect('/')
-        },
-        json:()=> res.status(200).send({})
-        })
+        res.format({html: ()=> {
+            res.render('user_register', {success:'Usuario cadastrado com sucesso'})
+             
+         }})
         
         //res.redirect('/teste')
     } catch (error) {
 
         console.log(error.sqlMessage)
+        res.format({html: ()=> {
+            res.render('user_register', {error:error.message})
+             
+         }})
     }
 })
 

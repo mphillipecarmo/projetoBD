@@ -9,63 +9,54 @@
     <title>Biblioteca</title>
 </head>
 <body class = 'justify-content-center'>
-    <div class="mt-5 d-flex justify-content-around ">
 
-        <form class="card col-8 card-shadow p-2 " action="/consultar_datas" method="POST">
-            <div class="row d-flex justify-content-center ">
+<div class="mt-5 d-flex justify-content-around">
+
+        <form class="card col-8 card-shadow p-2" action="/reservar_livro" method="POST">
+            <div class="row d-flex justify-content-around">
 
                 <div class="mb-3 col-4 p-2">
-                    <label for="CPF" class="form-label">CPF</label>
-                    <input type="text" class="form-control" id="csd_CPF" name="csd_CPF">
+                    <label for="id_livro" class="form-label">Id livro</label>
+                    <input type="text" class="form-control" id="rev_id_livro" name="rev_id_livro">
                 </div>
+
+                <div class="mb-3 col-4 p-2">
+                    <label for="CPF" class="form-label">CPF do usuario</label>
+                    <input type="text" class="form-control" id="rev_CPF" name="rev_CPF">
+                </div>
+
             </div>
 
             <div class=" d-flex justify-content-center my-5 ">
-                <button type="submit" class="btn btn-color" id="btn_statusUser">Submit</button>
-
+                <button type="submit" class="btn btn-color col-4" id="rev_emprestar">Submit</button>
             </div>
         </form>
 
-
-
     </div>
 
-    <div class="mt-5 d-flex justify-content-around">
+    
+<div class="mt-5 d-flex justify-content-around">
+
         <div class="card col-8 card-shadow p-2 ">
-            {{#if csd_lista_usuario}}
-                
-            <div>
-                {{#each csd_lista_usuario}}
-                <ul>
-                    <li>Nome: {{nome}}</li>
-                    <li>Telefone: {{telefone}}</li>
-                    <li>Email: {{emal}}</li>
-                    <li>Status: {{status}}</li>
-                    <li>Dias Bloqueados: {{diasbloqueado}}</li>
-                </ul>
-                 {{/each}}
-            </div>
+            {{#if livro}}
             <table class="table table-hover">
                 <thead>
                     <tr>
-
+                        <th>Id</th>
                         <th>Nome</th>
-                        <th>Autor</th>
-                        <th>Volume</th>
+                        <th>Editora</th>
+                        <th>Categoria</th>
                         <th>Ano</th>
-                        <th>Data emprestimo</th>
-                        <th>Renovações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each csd_lista_usuario_livros}}
+                    {{#each livro}}
                     <tr>
+                        <td>{{id}}</td>
                         <td>{{nome}}</td>
                         <td>{{autor}}</td>
-                        <td>{{volume}}</td>
+                        <td>{{editora}}</td>
                         <td>{{ano}}</td>
-                        <td>{{dataemprestimo}}</td>
-                        <td>{{renova}}</td>
 
                     </tr>
                     {{/each}}
@@ -74,6 +65,8 @@
             {{/if}}
         </div>
     </div>
+
+
 
 
 

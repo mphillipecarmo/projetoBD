@@ -108,6 +108,8 @@ ALTER TABLE reservas
         REFERENCES usuario ( cpf );
 
 
+DROP VIEW IF EXISTS emprestimo_nome;
+CREATE VIEW emprestimo_nome AS SELECT usr.nome, usr.emal ,emp.usuario, emp.dataemprestimo, emp.id_livro from emprestimo emp inner join usuario usr on usr.CPF = emp.usuario;
 
 -- Relatório do Resumo do Oracle SQL Developer Data Modeler:
 -- 
